@@ -37,10 +37,12 @@ const resolvers = {
     },
   },
   Track: {
+    // Get author for track based on parent's authorId
     author: ({ authorId }, _, { dataSources }) => {
       return dataSources.trackAPI.getAuthor(authorId);
     },
 
+    // Get modules for a track based on parent's id
     modules: ({ id }, _, { dataSources }) => {
       return dataSources.trackAPI.getTrackModules(id);
     },
